@@ -1,6 +1,6 @@
 package com.example.BMS.Model;
-import jakarta.persistence.*;
-import jakarta.persistence.Entity;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,6 +31,6 @@ public class MovieEntity {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date releaseDate;
 
-    @OneToMany(mappedBy = "movieEntity", cascade = CascadeType.ALL)
-    private List<ShowEntity> showEntityList;
+//    @OneToMany(mappedBy = "movieEntity", cascade = CascadeType.ALL)
+//    private List<ShowEntity> showEntityList;
 }

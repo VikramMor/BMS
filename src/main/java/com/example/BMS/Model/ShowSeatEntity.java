@@ -1,7 +1,8 @@
 package com.example.BMS.Model;
 
 import com.example.BMS.Enum.SeatType;
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,10 +33,12 @@ public class ShowSeatEntity {
 
     @ManyToOne
     @JoinColumn
+//    @JsonBackReference
     private ShowEntity show;
 
     @ManyToOne
     @JoinColumn
+//    @JsonBackReference
     private TicketEntity ticket;
 }
 

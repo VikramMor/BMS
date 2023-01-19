@@ -2,7 +2,7 @@ package com.example.BMS.Model;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,6 +32,7 @@ public class TheatreEntity {
     @JsonManagedReference
     List<TheatreSeatEntity> theatreSeatEntityList;
 
-    @OneToMany(mappedBy = "theatreEntity", cascade = CascadeType.ALL)
-    List<ShowEntity> listOfShows;
+//    @OneToMany(mappedBy = "theatreEntity", cascade = CascadeType.ALL)
+////    @JsonManagedReference
+//    List<ShowEntity> listOfShows;
 }

@@ -1,6 +1,8 @@
 package com.example.BMS.Model;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -46,12 +48,15 @@ public class ShowEntity {
 
     @ManyToOne
     @JoinColumn
+//    @JsonBackReference
     private TheatreEntity theatreEntity;
 
     @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+//    @JsonManagedReference
     private List<ShowSeatEntity> showSeatEntityList;
 
     @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+//    @JsonManagedReference
     private List<TicketEntity> ticketEntityList;
 }
 
