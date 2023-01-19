@@ -31,6 +31,6 @@ public class MovieEntity {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date releaseDate;
 
-//    @OneToMany(mappedBy = "movieEntity", cascade = CascadeType.ALL)
-//    private List<ShowEntity> showEntityList;
+    @OneToMany(mappedBy = "movieEntity", cascade = CascadeType.ALL)
+    private List<ShowEntity> showEntityList;
 }

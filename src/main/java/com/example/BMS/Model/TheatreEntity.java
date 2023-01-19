@@ -32,7 +32,7 @@ public class TheatreEntity {
     @JsonManagedReference
     List<TheatreSeatEntity> theatreSeatEntityList;
 
-//    @OneToMany(mappedBy = "theatreEntity", cascade = CascadeType.ALL)
-////    @JsonManagedReference
-//    List<ShowEntity> listOfShows;
+    @OneToMany(mappedBy = "theatreEntity", cascade = CascadeType.ALL)
+//    @JsonManagedReference
+    List<ShowEntity> listOfShows;
 }

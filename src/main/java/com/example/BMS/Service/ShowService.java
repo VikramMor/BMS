@@ -37,8 +37,8 @@ public class ShowService {
         show.setTheatreEntity(theatre);
         show.setMovieEntity(movie);
 
-//        movie.getShowEntityList().add(show);
-//        theatre.getListOfShows().add(show);
+        movie.getShowEntityList().add(show);
+        theatre.getListOfShows().add(show);
 
         List<ShowSeatEntity> showSeats = createShowSeats(theatre.getTheatreSeatEntityList());
 
@@ -47,9 +47,9 @@ public class ShowService {
         for(ShowSeatEntity seat: showSeats){
             seat.setShow(show);
         }
-//        movieRepo.save(movie);
-//        theatreRepo.save(theatre);
         showRepo.save(show);
+        movieRepo.save(movie);
+        theatreRepo.save(theatre);
 
         return "Show added successfully!";
     }
