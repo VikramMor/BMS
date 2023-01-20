@@ -13,5 +13,6 @@ public interface UserRepo extends JpaRepository<UserEntity, Integer> {
 //    @Query(value = "Select * from users ORDER BY id")
     public List<UserEntity> findAll();
 
-    public UserEntity findByMobile(String mobile);
+    @Query("select u from UserEntity u where u.mobile =:mobileNo")
+    public UserEntity findByMobile(String mobileNo);
 }

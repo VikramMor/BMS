@@ -23,7 +23,8 @@ public class ShowConvertor {
         for(ShowEntity show : showList) {
             ShowResponseDto showResponseDto = ShowResponseDto.builder().showTime(show.getShowTime()).
                                                     showDate(show.getShowDate()).movieName(movie.getName()).
-                                                        theatreName(show.getTheatreEntity().getName()).build();
+                                                        theatreName(show.getTheatreEntity().getName()).
+                                                            theatreAddress(show.getTheatreEntity().getAddress()).build();
             dtoList.add(showResponseDto);
         }
         return dtoList;
@@ -32,7 +33,8 @@ public class ShowConvertor {
     public static ShowResponseDto convertEntityToDto(ShowEntity show){
         ShowResponseDto showResponseDto = ShowResponseDto.builder().showDate(show.getShowDate()).
                                             showTime(show.getShowTime()).movieName(show.getMovieEntity().getName()).
-                                                theatreName(show.getTheatreEntity().getName()).build();
+                                                theatreName(show.getTheatreEntity().getName()).
+                                                    theatreAddress(show.getTheatreEntity().getAddress()).build();
 
         return showResponseDto;
     }

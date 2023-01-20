@@ -14,11 +14,14 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class ShowResponseDto {
 
+    private String movieName;
+
+    private String theatreName;
+
+    private String theatreAddress;
+
     private LocalDate showDate;
 
     private LocalTime showTime;
 
-    private String movieName;
-
-    private String theatreName;
 }

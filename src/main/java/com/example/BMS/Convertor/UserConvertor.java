@@ -18,7 +18,7 @@ public class UserConvertor {
 
     public static UserResponseDto convertEntityToDto(UserEntity user){
 
-        UserResponseDto userResponseDto = UserResponseDto.builder().mobile(user.getMobile()).
+        UserResponseDto userResponseDto = UserResponseDto.builder().name(user.getName()).mobile(user.getMobile()).
                                                 tickets(TicketConvertor.convertEntityToDto(user)).build();
 
         return userResponseDto;

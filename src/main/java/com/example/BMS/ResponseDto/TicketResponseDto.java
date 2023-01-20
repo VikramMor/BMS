@@ -19,7 +19,8 @@ public class TicketResponseDto {
 
     private int amount;
 
+    private ShowResponseDto show;
+
     private Date bookedAt;
 
-    private ShowResponseDto show;
 }

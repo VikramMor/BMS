@@ -13,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 public class UserResponseDto {
 
+    private String name;
+
     private String mobile;
 
     private List<TicketResponseDto> tickets;

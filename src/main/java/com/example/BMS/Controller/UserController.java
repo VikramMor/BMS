@@ -2,6 +2,7 @@ package com.example.BMS.Controller;
 
 import com.example.BMS.RequestDto.UserRequestDto;
 import com.example.BMS.Model.UserEntity;
+import com.example.BMS.ResponseDto.UserResponseDto;
 import com.example.BMS.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,14 +25,20 @@ public class UserController {
     }
 
     @GetMapping("/get_by_name/{name}")
-    public ResponseEntity<List<UserEntity>> getUserByName(@PathVariable String name){
-        List<UserEntity> list = userService.getUserByName(name);
+    public ResponseEntity<List<UserResponseDto>> getUserByName(@PathVariable String name){
+        List<UserResponseDto> list = userService.getUserByName(name);
         return new ResponseEntity<>(list, HttpStatus.FOUND);
     }
 
+    @GetMapping("get_by_mobile/{mobile}")
+    public ResponseEntity<UserResponseDto> getUserByMobile(@PathVariable String mobile){
+        UserResponseDto user = userService.getUserByMobile(mobile);
+        return new ResponseEntity<>(user, HttpStatus.FOUND);
+    }
+
     @GetMapping("/get_all")
-    public ResponseEntity<List<UserEntity>> getAllUsers(){
-        List<UserEntity> list = userService.getAllUsers();
+    public ResponseEntity<List<UserResponseDto>> getAllUsers(){
+        List<UserResponseDto> list = userService.getAllUsers();
         return new ResponseEntity<>(list, HttpStatus.FOUND);
     }
 }

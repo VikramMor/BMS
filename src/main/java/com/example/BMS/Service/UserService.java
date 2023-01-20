@@ -4,9 +4,11 @@ import com.example.BMS.Convertor.UserConvertor;
 import com.example.BMS.RequestDto.UserRequestDto;
 import com.example.BMS.Model.UserEntity;
 import com.example.BMS.Repository.UserRepo;
+import com.example.BMS.ResponseDto.UserResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,18 +29,38 @@ public class UserService {
         }
     }
 
-    public List<UserEntity> getUserByName(String name){
+    public List<UserResponseDto> getUserByName(String name){
         try{
-            return userRepo.findByName(name);
+            List<UserEntity> users = userRepo.findByName(name);
+            List<UserResponseDto> dtoList = new ArrayList<>();
+
+            for(UserEntity user : users){
+                UserResponseDto userResponseDto = UserConvertor.convertEntityToDto(user);
+                dtoList.add(userResponseDto);
+            }
+            return dtoList;
         }
         catch (Exception e){
             throw new RuntimeException("Problem fetching User by name!!");
         }
     }
 
-    public List<UserEntity> getAllUsers(){
+    public UserResponseDto getUserByMobile(String mobile){
+        UserEntity user = userRepo.findByMobile(mobile);
+        UserResponseDto userResponseDto = UserConvertor.convertEntityToDto(user);
+        return userResponseDto;
+    }
+
+    public List<UserResponseDto> getAllUsers(){
         try {
-            return userRepo.findAll();
+            List<UserEntity> users = userRepo.findAll();
+            List<UserResponseDto> dtoList = new ArrayList<>();
+
+            for(UserEntity user : users){
+                UserResponseDto userResponseDto = UserConvertor.convertEntityToDto(user);
+                dtoList.add(userResponseDto);
+            }
+            return dtoList;
         }
         catch (Exception e){
             throw new RuntimeException("Problem fetching Users!!");
