@@ -1,7 +1,8 @@
 package com.example.BMS.Convertor;
 
-import com.example.BMS.Dto.TheatreRequestDto;
+import com.example.BMS.RequestDto.TheatreRequestDto;
 import com.example.BMS.Model.TheatreEntity;
+import com.example.BMS.ResponseDto.TheatreResponseDto;
 
 public class TheatreConvertor {
 
@@ -11,5 +12,13 @@ public class TheatreConvertor {
                 address(theatreRequestDto.getAddress()).build();
 
         return theatreEntity;
+    }
+
+    public static TheatreResponseDto convertEntityToDto(TheatreEntity theatre){
+        TheatreResponseDto theatreResponseDto= TheatreResponseDto.builder().name(theatre.getName()).
+                                                    city(theatre.getCity()).address(theatre.getAddress()).
+                                                        seatCount(theatre.getTheatreSeatEntityList().size()).build();
+
+        return theatreResponseDto;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.BMS.Dto;
+package com.example.BMS.RequestDto;
 
 import lombok.Data;
 

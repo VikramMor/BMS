@@ -1,6 +1,6 @@
 package com.example.BMS.Service;
 
-import com.example.BMS.Dto.BookTicketRequestDto;
+import com.example.BMS.RequestDto.BookTicketRequestDto;
 import com.example.BMS.Model.ShowEntity;
 import com.example.BMS.Model.ShowSeatEntity;
 import com.example.BMS.Model.TicketEntity;

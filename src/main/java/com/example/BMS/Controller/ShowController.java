@@ -1,6 +1,6 @@
 package com.example.BMS.Controller;
 
-import com.example.BMS.Dto.ShowRequestDto;
+import com.example.BMS.RequestDto.ShowRequestDto;
 import com.example.BMS.Service.ShowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

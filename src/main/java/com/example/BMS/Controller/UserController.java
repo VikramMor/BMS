@@ -1,6 +1,6 @@
 package com.example.BMS.Controller;
 
-import com.example.BMS.Dto.UserRequestDto;
+import com.example.BMS.RequestDto.UserRequestDto;
 import com.example.BMS.Model.UserEntity;
 import com.example.BMS.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

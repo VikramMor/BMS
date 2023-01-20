@@ -1,12 +1,13 @@
 package com.example.BMS.Service;
 
 import com.example.BMS.Convertor.TheatreConvertor;
-import com.example.BMS.Dto.TheatreRequestDto;
+import com.example.BMS.RequestDto.TheatreRequestDto;
 import com.example.BMS.Enum.SeatType;
 import com.example.BMS.Model.TheatreEntity;
 import com.example.BMS.Model.TheatreSeatEntity;
 import com.example.BMS.Repository.TheatreRepo;
 import com.example.BMS.Repository.TheatreSeatRepo;
+import com.example.BMS.ResponseDto.TheatreResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,20 +74,48 @@ public class TheatreService {
         return seats;
     }
 
-    public TheatreEntity getById(int id){
+    public TheatreResponseDto getById(int id){
         try {
             TheatreEntity theatre = theatreRepo.findById(id);
-            return theatre;
+            TheatreResponseDto theatreResponseDto = TheatreConvertor.convertEntityToDto(theatre);
+            return theatreResponseDto;
         }
         catch (Exception e){
             throw new RuntimeException("No theatre found with requested id!!");
         }
     }
 
-    public List<TheatreEntity> getAll(){
+    public List<TheatreResponseDto> getByCity(String cityName){
+        try {
+            List<TheatreEntity> theatres = theatreRepo.findByCity(cityName);
+            System.out.println(theatres.size());
+            List<TheatreResponseDto> dtoList = new ArrayList<>();
+
+            for(TheatreEntity theatre : theatres){
+                TheatreResponseDto theatreResponseDto = TheatreConvertor.convertEntityToDto(theatre);
+                dtoList.add(theatreResponseDto);
+            }
+            return dtoList;
+        }
+        catch (Exception e){
+            throw new RuntimeException("No theatre found in requested City!!");
+        }
+        finally {
+            List<TheatreEntity> theatres = theatreRepo.findByCity(cityName);
+            System.out.println(theatres.size());
+        }
+    }
+
+    public List<TheatreResponseDto> getAll(){
         try {
             List<TheatreEntity> theatres = theatreRepo.findAll();
-            return theatres;
+            List<TheatreResponseDto> dtoList = new ArrayList<>();
+
+            for(TheatreEntity theatre : theatres){
+                TheatreResponseDto theatreResponseDto = TheatreConvertor.convertEntityToDto(theatre);
+                dtoList.add(theatreResponseDto);
+            }
+            return dtoList;
         }
         catch (Exception e){
             throw new RuntimeException("No theatres found in the database!!");

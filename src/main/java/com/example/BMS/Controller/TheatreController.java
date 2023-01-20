@@ -1,7 +1,8 @@
 package com.example.BMS.Controller;
 
-import com.example.BMS.Dto.TheatreRequestDto;
+import com.example.BMS.RequestDto.TheatreRequestDto;
 import com.example.BMS.Model.TheatreEntity;
+import com.example.BMS.ResponseDto.TheatreResponseDto;
 import com.example.BMS.Service.TheatreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,14 +26,20 @@ public class TheatreController {
     }
 
     @GetMapping("/get_by_id/{id}")
-    public ResponseEntity<TheatreEntity> getById(@PathVariable int id){
-        TheatreEntity theatre = theatreService.getById(id);
+    public ResponseEntity<TheatreResponseDto> getById(@PathVariable int id){
+        TheatreResponseDto theatre = theatreService.getById(id);
+        return new ResponseEntity<>(theatre, HttpStatus.FOUND);
+    }
+
+    @GetMapping("/get_by_city/{cityName}")
+    public ResponseEntity<List<TheatreResponseDto>> getByCity(@PathVariable String cityName){
+        List<TheatreResponseDto> theatre = theatreService.getByCity(cityName);
         return new ResponseEntity<>(theatre, HttpStatus.FOUND);
     }
 
     @GetMapping("get_all")
-    public ResponseEntity<List<TheatreEntity>> getAll(){
-        List<TheatreEntity> theatres = theatreService.getAll();
+    public ResponseEntity<List<TheatreResponseDto>> getAll(){
+        List<TheatreResponseDto> theatres = theatreService.getAll();
 
         return new ResponseEntity<>(theatres, HttpStatus.FOUND);
     }

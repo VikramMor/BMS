@@ -1,7 +1,7 @@
 package com.example.BMS.Service;
 
 import com.example.BMS.Convertor.UserConvertor;
-import com.example.BMS.Dto.UserRequestDto;
+import com.example.BMS.RequestDto.UserRequestDto;
 import com.example.BMS.Model.UserEntity;
 import com.example.BMS.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;

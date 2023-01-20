@@ -1,6 +1,6 @@
 package com.example.BMS.Controller;
 
-import com.example.BMS.Dto.BookTicketRequestDto;
+import com.example.BMS.RequestDto.BookTicketRequestDto;
 import com.example.BMS.Service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

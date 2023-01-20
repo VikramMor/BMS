@@ -1,7 +1,7 @@
 package com.example.BMS.Service;
 
 import com.example.BMS.Convertor.ShowConvertor;
-import com.example.BMS.Dto.ShowRequestDto;
+import com.example.BMS.RequestDto.ShowRequestDto;
 import com.example.BMS.Model.*;
 import com.example.BMS.Repository.MovieRepo;
 import com.example.BMS.Repository.ShowRepo;
